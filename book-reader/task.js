@@ -5,6 +5,9 @@ bookControlArray.forEach(bookControl => {
     let fontSizeArray = Array.from(bookControl.children)
     fontSizeArray.forEach(fontSize => {
         fontSize.onclick = () => {
+            let activeIndex = fontSizeArray.findIndex(el => el.classList.contains('font-size_active'))
+            fontSizeArray[activeIndex].classList.remove('font-size_active') 
+            fontSize.classList.add('font-size_active')
             if (fontSize.getAttribute('data-size') === "small")  {
                 if (!book.classList.contains('book_fs-small')) {
                     book.classList.add('book_fs-small')
